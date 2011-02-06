@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Money", "Money\Money.csproj", "{68E2CB19-8170-4527-BF9C-1748468DB97D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Money.Tests", "Money.Tests\Money.Tests.csproj", "{4B65FC60-64B5-41E5-A75B-325C22DF3010}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Money.Specifications", "Money.Specifications\Money.Specifications.csproj", "{A676F479-26A4-40A5-9C08-EF40187A625D}"
 EndProject
 Global
@@ -17,10 +15,6 @@ Global
 		{68E2CB19-8170-4527-BF9C-1748468DB97D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68E2CB19-8170-4527-BF9C-1748468DB97D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68E2CB19-8170-4527-BF9C-1748468DB97D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4B65FC60-64B5-41E5-A75B-325C22DF3010}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4B65FC60-64B5-41E5-A75B-325C22DF3010}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4B65FC60-64B5-41E5-A75B-325C22DF3010}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4B65FC60-64B5-41E5-A75B-325C22DF3010}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A676F479-26A4-40A5-9C08-EF40187A625D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A676F479-26A4-40A5-9C08-EF40187A625D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A676F479-26A4-40A5-9C08-EF40187A625D}.Release|Any CPU.ActiveCfg = Release|Any CPU
