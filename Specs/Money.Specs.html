@@ -1,0 +1,122 @@
+<html>
+  <head>
+    <title>Machine.Specifications Report</title>
+    <style type="text/css">
+      body {
+        font-family: Arial,Helvetica,sans-serif;
+        font-size: .9em;
+      }
+
+      .count {
+        color: LightGrey;
+      }
+
+      .behaves_like {
+        color: DarkGrey;
+        font-weight: bold;
+        margin-left: 20px;
+        margin-top: -10px;
+      }
+      
+      .failure {
+        color: red;
+        font-weight: bold;
+        display: inline;
+      }
+
+      .notimplemented {
+        color: orange;
+        font-weight: bold;
+        display: inline;
+      }
+
+      p.exception_type {
+        color: black;
+        font-weight: bold;
+        display: inline;
+      }
+
+      pre.exception_message {
+        border-style: dashed;
+        border-color: #FF828D;
+        border-width: thin;
+        background-color: #FFD2CF;
+        white-space: pre-wrap; /* CSS2.1 compliant */
+        white-space: -moz-pre-wrap; /* Mozilla-based browsers */
+        white-space: o-pre-wrap; /* Opera 7+ */
+        padding: 1em;
+      }
+      
+      hr {
+        color: LightGrey;
+        border: 1px solid LightGrey;
+        height: 1px;
+      }
+      
+      
+    </style>
+<script>
+function toggleVisibility(id, description) {
+          var section;
+          var link;
+ 
+          section = document.getElementById(id);
+          link = document.getElementById(id + "_link");
+ 
+          if (section.style.display == "block") {
+            section.style.display = "none"
+            link.innerHTML = "Show " + description
+          } else {
+            section.style.display = "block"
+            link.innerHTML = "Hide " + description
+          }
+        }</script>
+  </head>
+  <body>
+    <h1>Money.Specs&nbsp;&nbsp;&nbsp;&nbsp;</h1><span class="count"><h2>1 concern, 5 contexts, 23 specifications </h2><br></span><hr>
+<hr>
+<h2 class="concern"> specifications&nbsp;&nbsp;&nbsp;&nbsp;</h2><h3><span class="count">5 contexts, 23 specifications</span></h3>
+
+<h3 class="context">When creating a new Money with no args&nbsp;&nbsp;&nbsp;&nbsp;</h3><h4><span class="count">5 specifications</span></h4><ul>	<li>should default to an amount of 0</li>
+	<li>should have a precision of 2 decimals</li>
+	<li>should default to the culture of the current thread</li>
+	<li>should default to the currency symbol for the current region</li>
+	<li>should use the current culture when converting to a string</li>
+</ul>
+
+
+<h3 class="context">When creating a new Money with enCA and no amount&nbsp;&nbsp;&nbsp;&nbsp;</h3><h4><span class="count">5 specifications</span></h4><ul>	<li>should have an amount of 0</li>
+	<li>should have a precision of 2 decimals</li>
+	<li>should default to frCA</li>
+	<li>should default to CAD as the currency symbol</li>
+	<li>should ToString as french currency</li>
+</ul>
+
+
+<h3 class="context">When creating a new Money with frCA and no amount&nbsp;&nbsp;&nbsp;&nbsp;</h3><h4><span class="count">5 specifications</span></h4><ul>	<li>should have an amount of 0</li>
+	<li>should have a precision of 2 decimals</li>
+	<li>should default to frCA</li>
+	<li>should default to CAD as the currency symbol</li>
+	<li>should ToString as french currency</li>
+</ul>
+
+
+<h3 class="context">When creating a new Money with enUS and no amount&nbsp;&nbsp;&nbsp;&nbsp;</h3><h4><span class="count">5 specifications</span></h4><ul>	<li>should have an amount of 0</li>
+	<li>should have a precision of 2 decimals</li>
+	<li>should default to frCA</li>
+	<li>should default to CAD as the currency symbol</li>
+	<li>should ToString as french currency</li>
+</ul>
+
+
+<h3 class="context">When creating a new Money with decimal 4 point 33&nbsp;&nbsp;&nbsp;&nbsp;</h3><h4><span class="count">3 specifications</span></h4><ul>	<li>should have an amount of 4 dollars and 33 cents</li>
+	<li>should have a precision of 2 decimals</li>
+	<li>should ToString with the proper amount</li>
+</ul>
+
+<hr>
+<br><br>
+<hr>
+
+</body>
+</html>

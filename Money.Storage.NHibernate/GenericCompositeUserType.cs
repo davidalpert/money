@@ -188,6 +188,12 @@ namespace Money.Storage.NHibernate
             if (x == null || y == null) return false;
             return x.Equals(y);
         }
+
+        public int GetHashCode(object x)
+        {
+            return x == null ? -1 : x.GetHashCode();
+        }
+
         /// <summary>
         /// This first checks to see if an implementation of <see cref="GetMap"/> has been provided. If not,
         /// it attempts to create an instance of &lt;T&gt; with full constructor initialization. If this fails
@@ -314,5 +320,11 @@ namespace Money.Storage.NHibernate
             get { return _isMutable; }
         }
 
+        public object Replace(object original, object target, ISessionImplementor session, object owner)
+        {
+            if (_isMutable) return original;
+
+            return target;
+        }
     }
 }

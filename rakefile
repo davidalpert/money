@@ -1,0 +1,83 @@
+require 'rake'
+require 'fileutils'
+Dir.glob(File.join(File.dirname(__FILE__), 'tools/Rake/*.rb')).each do |f|
+	require f
+end
+include FileUtils
+
+class String
+  def slash(path)
+    if self =~ /\/$/
+      return self + path
+    end
+
+    return self + '/' + path
+  end
+end
+
+version = 'v3.5'
+compile_target = ENV.include?('target') ? ENV['target'] : 'debug'
+project = "Money"
+packageName = "Distribution/#{project}-#{compile_target}.zip"
+frameworkDir = File.join(ENV['windir'].dup, 'Microsoft.NET', 'Framework', version)
+msbuild = File.join(frameworkDir, 'msbuild.exe')
+src_path = '.'
+specs_path = 'Specs'
+mspec_path = File.join('Tools', 'MSpec', 'mspec.exe')
+mspec_options = []
+
+task :setup => [ "setup:all" ]
+
+file ".setup-done" => [ "rakefile" ] do
+  Rake::Task["setup:all"].invoke
+end
+
+namespace :setup do
+  task :all do
+    touch ".setup-done"
+  end
+end
+
+desc "Build and run specs"
+task :default => [ "build", "specs:run" ]
+
+desc "Build"
+task :build => [ ".setup-done" ] do
+  sh "#{msbuild} #{src_path}/#{project}.sln /property:Configuration=#{compile_target}"
+end
+
+namespace :specs do
+  desc "Run and view specifications."
+  task :view => :run do
+    system "start #{specs_path}/#{project}.Specs.html"
+  end
+
+  desc "Run specifications."
+  task :run do
+    puts 'Running Specs...'
+	 FileUtils.mkdir_p specs_path
+
+	 specs_to_run = Dir.glob("#{src_path}/**/bin/#{compile_target}/*.Specs.dll")
+    sh mspec_path, "--html", "#{specs_path}/#{project}.Specs.html", "-x", "example", *(mspec_options + specs_to_run)
+    puts "Wrote specs to #{specs_path}/#{project}.Specs.html, run 'rake specs:view' to see them"
+  end
+end
+
+desc "Open solution in VS"
+task :sln do
+  Thread.new do
+    system "devenv #{src_path}/#{project}.sln"
+  end
+end
+
+desc "Rebuild"
+task :rebuild => [ ".setup-done", :clean ] do
+  sh "#{msbuild} #{src_path}/#{project}.sln /property:Configuration=#{compile_target}"
+end
+
+desc "Clean"
+task :clean do
+  sh "#{msbuild} #{src_path}/#{project}.sln /t:Clean /property:Configuration=#{compile_target}"
+  rm_f packageName
+  rm_rf "Build"
+end

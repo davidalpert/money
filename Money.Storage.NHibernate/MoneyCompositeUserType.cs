@@ -8,7 +8,6 @@ using System.Reflection;
 using System.Data;
 using NHibernate.Engine;
 using NHibernate;
-using NHibernate.;
 using System.Globalization;
 
 namespace Money.Storage.NHibernate

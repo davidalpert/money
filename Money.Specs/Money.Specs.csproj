@@ -8,8 +8,8 @@
     <ProjectGuid>{A676F479-26A4-40A5-9C08-EF40187A625D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Money.Specifications</RootNamespace>
-    <AssemblyName>Money.Specifications</AssemblyName>
+    <RootNamespace>Money.Specs</RootNamespace>
+    <AssemblyName>Money.Specs</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
