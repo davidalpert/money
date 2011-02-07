@@ -17,8 +17,21 @@ namespace Money.Specs.TestContext
         {
             Id(x => x.Id);
             Map(x => x.Name);
-            Map(x => x.PurchasePrice, "Purchase").CustomType<MoneyCompositeUserType>();
+            //Map(x => x.PurchasePrice, "Purchase").CustomType<MoneyCompositeUserType>();
+            Component<Money>(x => x.PurchasePrice);
             //Map(x => x.RentalPrice, "Rental").CustomType<MoneyCompositeUserType>();
+        }
+    }
+
+    public class MoneyMap : ComponentMap<Money>
+    {
+        /// <summary>
+        /// Initializes a new instance of the MoneyMap class.
+        /// </summary>
+        public MoneyMap()
+        {
+            Map(x => x.Amount);
+            Map(x => x.EnglishCultureName, "CultureInfo");
         }
     }
 
