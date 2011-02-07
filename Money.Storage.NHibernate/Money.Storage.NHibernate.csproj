@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SessionHelper.cs" />
     <Compile Include="MoneyCompositeUserType.cs" />
     <Compile Include="GenericCompositeUserType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

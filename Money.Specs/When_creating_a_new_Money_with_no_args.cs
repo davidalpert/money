@@ -5,9 +5,65 @@ using System.Text;
 using Machine.Specifications;
 using System.Globalization;
 using System.Threading;
+using FluentNHibernate;
+using Money.Storage.NHibernate;
+using FluentNHibernate.Cfg;
+using FluentNHibernate.Cfg.Db;
+using Money.Specs.TestContext;
+using NHibernate.Tool.hbm2ddl;
+using NHibernate;
+using NHibernate.Linq;
+using System.Text.RegularExpressions;
 
 namespace Money.Specifications
 {
+    public class When_persisting_Money_via_NHibernate
+    {
+        static ISessionFactory sessionFactory;
+        static Product expectedProduct;
+        static Product actualProduct;
+
+        Establish context = () =>
+        {
+            var db = SQLiteConfiguration.Standard
+                                        .InMemory()
+                                        .ShowSql();
+
+            var config = Fluently.Configure()
+                                 .Database(db)
+                                 .Mappings(m =>
+                                 {
+                                     m.FluentMappings
+                                         .AddFromAssemblyOf<Product>();
+                                 })
+                                 .BuildConfiguration();
+
+            // script the db and create the schema
+            var export = new SchemaExport(config);
+            export.Execute(true, true, false);
+
+            // create a session factory
+            sessionFactory = config.BuildSessionFactory();
+
+            expectedProduct = new Product
+            {
+                Name = "test product",
+                RentalPrice = new Money(10.99m),
+                PurchasePrice = new Money(49.99m)
+            };
+
+            sessionFactory.AutoCommit(s => s.Save(expectedProduct));
+        };
+
+        Because of = () => sessionFactory.AutoSession(s => 
+            actualProduct = s.Query<Product>().First());
+
+        It should_persist_money_amounts = () => actualProduct.RentalPrice.Amount.ShouldEqual(expectedProduct.RentalPrice.Amount);
+        It should_persist_money_currency_names = () => actualProduct.RentalPrice.EnglishCultureName.ShouldEqual(expectedProduct.RentalPrice.EnglishCultureName);
+        It should_persist_multiple_money_amounts = () => actualProduct.PurchasePrice.Amount.ShouldEqual(expectedProduct.PurchasePrice.Amount);
+        It should_persist_multiple_currency_names = () => actualProduct.PurchasePrice.EnglishCultureName.ShouldEqual(expectedProduct.PurchasePrice.EnglishCultureName);
+    }
+
     public class When_creating_a_new_Money_with_no_args 
     {
         static Money money;

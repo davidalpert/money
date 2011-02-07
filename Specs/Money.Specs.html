@@ -73,9 +73,108 @@ function toggleVisibility(id, description) {
         }</script>
   </head>
   <body>
-    <h1>Money.Specs&nbsp;&nbsp;&nbsp;&nbsp;</h1><span class="count"><h2>1 concern, 5 contexts, 23 specifications </h2><br></span><hr>
+    <h1>Money.Specs&nbsp;&nbsp;&nbsp;&nbsp;</h1><span class="count"><h2>1 concern, 6 contexts, 27 specifications, <span class="failure">4 failures</span> </h2><br></span><hr>
 <hr>
-<h2 class="concern"> specifications&nbsp;&nbsp;&nbsp;&nbsp;</h2><h3><span class="count">5 contexts, 23 specifications</span></h3>
+<h2 class="concern"> specifications&nbsp;&nbsp;&nbsp;&nbsp;</h2><h3><span class="count">6 contexts, 27 specifications, <span class="failure">4 failures</span></span></h3>
+
+<h3 class="context">When persisting Money via NHibernate&nbsp;&nbsp;&nbsp;&nbsp;</h3><h4><span class="count">4 specifications, <span class="failure">4 failures</span></span></h4><ul>	<li>should persist money amounts <div class="failure">&lt;--FAILED</div><br/><p class="exception_type">Machine.Specifications.ExceptionResult<pre class="exception_message">System.NullReferenceException: Object reference not set to an instance of an object.
+   at Money.Storage.NHibernate.GenericCompositeUserType`1.GetPropertyValue(Object component, Int32 property) in D:\Users\David\dev\Money\Money.Storage.NHibernate\GenericCompositeUserType.cs:line 153
+   at NHibernate.Type.CompositeCustomType.GetPropertyValue(Object component, Int32 i)
+   at NHibernate.Type.CompositeCustomType.GetPropertyValues(Object component, EntityMode entityMode)
+   at NHibernate.Type.CompositeCustomType.GetPropertyValues(Object component, ISessionImplementor session)
+   at NHibernate.Engine.ForeignKeys.Nullifier.NullifyTransientReferences(Object value, IType type)
+   at NHibernate.Engine.ForeignKeys.Nullifier.NullifyTransientReferences(Object[] values, IType[] types)
+   at NHibernate.Event.Default.AbstractSaveEventListener.PerformSaveOrReplicate(Object entity, EntityKey key, IEntityPersister persister, Boolean useIdentityColumn, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
+   at NHibernate.Event.Default.AbstractSaveEventListener.PerformSave(Object entity, Object id, IEntityPersister persister, Boolean useIdentityColumn, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
+   at NHibernate.Event.Default.AbstractSaveEventListener.SaveWithGeneratedId(Object entity, String entityName, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
+   at NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.SaveWithGeneratedOrRequestedId(SaveOrUpdateEvent event)
+   at NHibernate.Event.Default.DefaultSaveEventListener.SaveWithGeneratedOrRequestedId(SaveOrUpdateEvent event)
+   at NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.EntityIsTransient(SaveOrUpdateEvent event)
+   at NHibernate.Event.Default.DefaultSaveEventListener.PerformSaveOrUpdate(SaveOrUpdateEvent event)
+   at NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.OnSaveOrUpdate(SaveOrUpdateEvent event)
+   at NHibernate.Impl.SessionImpl.FireSave(SaveOrUpdateEvent event)
+   at NHibernate.Impl.SessionImpl.Save(Object obj)
+   at Money.Specifications.When_persisting_Money_via_NHibernate.<.ctor>b__3(ISession s) in D:\Users\David\dev\Money\Money.Specs\When_creating_a_new_Money_with_no_args.cs:line 55
+   at Money.Storage.NHibernate.SessionHelper.<>c__DisplayClass14`1.<AutoCommit>b__13(ISession s) in D:\Users\David\dev\Money\Money.Storage.NHibernate\SessionHelper.cs:line 176
+   at Money.Storage.NHibernate.SessionHelper.AutoSession(ISessionFactory storage, Action`1 action) in D:\Users\David\dev\Money\Money.Storage.NHibernate\SessionHelper.cs:line 104
+   at Money.Storage.NHibernate.SessionHelper.AutoCommit[TResult](ISessionFactory storage, Func`2 functor) in D:\Users\David\dev\Money\Money.Storage.NHibernate\SessionHelper.cs:line 162
+   at Money.Specifications.When_persisting_Money_via_NHibernate.<.ctor>b__1() in D:\Users\David\dev\Money\Money.Specs\When_creating_a_new_Money_with_no_args.cs:line 55
+   at Machine.Specifications.Utility.RandomExtensionMethods.InvokeAll(IEnumerable`1 contextActions) in c:\Home\Source\Projects\machine.specifications\Source\Machine.Specifications\Utility\RandomExtensionMethods.cs:line 28
+   at Machine.Specifications.Model.Context.EstablishContext() in c:\Home\Source\Projects\machine.specifications\Source\Machine.Specifications\Model\Context.cs:line 56</pre></p></li>
+	<li>should persist money currency names <div class="failure">&lt;--FAILED</div><br/><p class="exception_type">Machine.Specifications.ExceptionResult<pre class="exception_message">System.NullReferenceException: Object reference not set to an instance of an object.
+   at Money.Storage.NHibernate.GenericCompositeUserType`1.GetPropertyValue(Object component, Int32 property) in D:\Users\David\dev\Money\Money.Storage.NHibernate\GenericCompositeUserType.cs:line 153
+   at NHibernate.Type.CompositeCustomType.GetPropertyValue(Object component, Int32 i)
+   at NHibernate.Type.CompositeCustomType.GetPropertyValues(Object component, EntityMode entityMode)
+   at NHibernate.Type.CompositeCustomType.GetPropertyValues(Object component, ISessionImplementor session)
+   at NHibernate.Engine.ForeignKeys.Nullifier.NullifyTransientReferences(Object value, IType type)
+   at NHibernate.Engine.ForeignKeys.Nullifier.NullifyTransientReferences(Object[] values, IType[] types)
+   at NHibernate.Event.Default.AbstractSaveEventListener.PerformSaveOrReplicate(Object entity, EntityKey key, IEntityPersister persister, Boolean useIdentityColumn, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
+   at NHibernate.Event.Default.AbstractSaveEventListener.PerformSave(Object entity, Object id, IEntityPersister persister, Boolean useIdentityColumn, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
+   at NHibernate.Event.Default.AbstractSaveEventListener.SaveWithGeneratedId(Object entity, String entityName, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
+   at NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.SaveWithGeneratedOrRequestedId(SaveOrUpdateEvent event)
+   at NHibernate.Event.Default.DefaultSaveEventListener.SaveWithGeneratedOrRequestedId(SaveOrUpdateEvent event)
+   at NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.EntityIsTransient(SaveOrUpdateEvent event)
+   at NHibernate.Event.Default.DefaultSaveEventListener.PerformSaveOrUpdate(SaveOrUpdateEvent event)
+   at NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.OnSaveOrUpdate(SaveOrUpdateEvent event)
+   at NHibernate.Impl.SessionImpl.FireSave(SaveOrUpdateEvent event)
+   at NHibernate.Impl.SessionImpl.Save(Object obj)
+   at Money.Specifications.When_persisting_Money_via_NHibernate.<.ctor>b__3(ISession s) in D:\Users\David\dev\Money\Money.Specs\When_creating_a_new_Money_with_no_args.cs:line 55
+   at Money.Storage.NHibernate.SessionHelper.<>c__DisplayClass14`1.<AutoCommit>b__13(ISession s) in D:\Users\David\dev\Money\Money.Storage.NHibernate\SessionHelper.cs:line 176
+   at Money.Storage.NHibernate.SessionHelper.AutoSession(ISessionFactory storage, Action`1 action) in D:\Users\David\dev\Money\Money.Storage.NHibernate\SessionHelper.cs:line 104
+   at Money.Storage.NHibernate.SessionHelper.AutoCommit[TResult](ISessionFactory storage, Func`2 functor) in D:\Users\David\dev\Money\Money.Storage.NHibernate\SessionHelper.cs:line 162
+   at Money.Specifications.When_persisting_Money_via_NHibernate.<.ctor>b__1() in D:\Users\David\dev\Money\Money.Specs\When_creating_a_new_Money_with_no_args.cs:line 55
+   at Machine.Specifications.Utility.RandomExtensionMethods.InvokeAll(IEnumerable`1 contextActions) in c:\Home\Source\Projects\machine.specifications\Source\Machine.Specifications\Utility\RandomExtensionMethods.cs:line 28
+   at Machine.Specifications.Model.Context.EstablishContext() in c:\Home\Source\Projects\machine.specifications\Source\Machine.Specifications\Model\Context.cs:line 56</pre></p></li>
+	<li>should persist multiple money amounts <div class="failure">&lt;--FAILED</div><br/><p class="exception_type">Machine.Specifications.ExceptionResult<pre class="exception_message">System.NullReferenceException: Object reference not set to an instance of an object.
+   at Money.Storage.NHibernate.GenericCompositeUserType`1.GetPropertyValue(Object component, Int32 property) in D:\Users\David\dev\Money\Money.Storage.NHibernate\GenericCompositeUserType.cs:line 153
+   at NHibernate.Type.CompositeCustomType.GetPropertyValue(Object component, Int32 i)
+   at NHibernate.Type.CompositeCustomType.GetPropertyValues(Object component, EntityMode entityMode)
+   at NHibernate.Type.CompositeCustomType.GetPropertyValues(Object component, ISessionImplementor session)
+   at NHibernate.Engine.ForeignKeys.Nullifier.NullifyTransientReferences(Object value, IType type)
+   at NHibernate.Engine.ForeignKeys.Nullifier.NullifyTransientReferences(Object[] values, IType[] types)
+   at NHibernate.Event.Default.AbstractSaveEventListener.PerformSaveOrReplicate(Object entity, EntityKey key, IEntityPersister persister, Boolean useIdentityColumn, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
+   at NHibernate.Event.Default.AbstractSaveEventListener.PerformSave(Object entity, Object id, IEntityPersister persister, Boolean useIdentityColumn, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
+   at NHibernate.Event.Default.AbstractSaveEventListener.SaveWithGeneratedId(Object entity, String entityName, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
+   at NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.SaveWithGeneratedOrRequestedId(SaveOrUpdateEvent event)
+   at NHibernate.Event.Default.DefaultSaveEventListener.SaveWithGeneratedOrRequestedId(SaveOrUpdateEvent event)
+   at NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.EntityIsTransient(SaveOrUpdateEvent event)
+   at NHibernate.Event.Default.DefaultSaveEventListener.PerformSaveOrUpdate(SaveOrUpdateEvent event)
+   at NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.OnSaveOrUpdate(SaveOrUpdateEvent event)
+   at NHibernate.Impl.SessionImpl.FireSave(SaveOrUpdateEvent event)
+   at NHibernate.Impl.SessionImpl.Save(Object obj)
+   at Money.Specifications.When_persisting_Money_via_NHibernate.<.ctor>b__3(ISession s) in D:\Users\David\dev\Money\Money.Specs\When_creating_a_new_Money_with_no_args.cs:line 55
+   at Money.Storage.NHibernate.SessionHelper.<>c__DisplayClass14`1.<AutoCommit>b__13(ISession s) in D:\Users\David\dev\Money\Money.Storage.NHibernate\SessionHelper.cs:line 176
+   at Money.Storage.NHibernate.SessionHelper.AutoSession(ISessionFactory storage, Action`1 action) in D:\Users\David\dev\Money\Money.Storage.NHibernate\SessionHelper.cs:line 104
+   at Money.Storage.NHibernate.SessionHelper.AutoCommit[TResult](ISessionFactory storage, Func`2 functor) in D:\Users\David\dev\Money\Money.Storage.NHibernate\SessionHelper.cs:line 162
+   at Money.Specifications.When_persisting_Money_via_NHibernate.<.ctor>b__1() in D:\Users\David\dev\Money\Money.Specs\When_creating_a_new_Money_with_no_args.cs:line 55
+   at Machine.Specifications.Utility.RandomExtensionMethods.InvokeAll(IEnumerable`1 contextActions) in c:\Home\Source\Projects\machine.specifications\Source\Machine.Specifications\Utility\RandomExtensionMethods.cs:line 28
+   at Machine.Specifications.Model.Context.EstablishContext() in c:\Home\Source\Projects\machine.specifications\Source\Machine.Specifications\Model\Context.cs:line 56</pre></p></li>
+	<li>should persist multiple currency names <div class="failure">&lt;--FAILED</div><br/><p class="exception_type">Machine.Specifications.ExceptionResult<pre class="exception_message">System.NullReferenceException: Object reference not set to an instance of an object.
+   at Money.Storage.NHibernate.GenericCompositeUserType`1.GetPropertyValue(Object component, Int32 property) in D:\Users\David\dev\Money\Money.Storage.NHibernate\GenericCompositeUserType.cs:line 153
+   at NHibernate.Type.CompositeCustomType.GetPropertyValue(Object component, Int32 i)
+   at NHibernate.Type.CompositeCustomType.GetPropertyValues(Object component, EntityMode entityMode)
+   at NHibernate.Type.CompositeCustomType.GetPropertyValues(Object component, ISessionImplementor session)
+   at NHibernate.Engine.ForeignKeys.Nullifier.NullifyTransientReferences(Object value, IType type)
+   at NHibernate.Engine.ForeignKeys.Nullifier.NullifyTransientReferences(Object[] values, IType[] types)
+   at NHibernate.Event.Default.AbstractSaveEventListener.PerformSaveOrReplicate(Object entity, EntityKey key, IEntityPersister persister, Boolean useIdentityColumn, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
+   at NHibernate.Event.Default.AbstractSaveEventListener.PerformSave(Object entity, Object id, IEntityPersister persister, Boolean useIdentityColumn, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
+   at NHibernate.Event.Default.AbstractSaveEventListener.SaveWithGeneratedId(Object entity, String entityName, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
+   at NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.SaveWithGeneratedOrRequestedId(SaveOrUpdateEvent event)
+   at NHibernate.Event.Default.DefaultSaveEventListener.SaveWithGeneratedOrRequestedId(SaveOrUpdateEvent event)
+   at NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.EntityIsTransient(SaveOrUpdateEvent event)
+   at NHibernate.Event.Default.DefaultSaveEventListener.PerformSaveOrUpdate(SaveOrUpdateEvent event)
+   at NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.OnSaveOrUpdate(SaveOrUpdateEvent event)
+   at NHibernate.Impl.SessionImpl.FireSave(SaveOrUpdateEvent event)
+   at NHibernate.Impl.SessionImpl.Save(Object obj)
+   at Money.Specifications.When_persisting_Money_via_NHibernate.<.ctor>b__3(ISession s) in D:\Users\David\dev\Money\Money.Specs\When_creating_a_new_Money_with_no_args.cs:line 55
+   at Money.Storage.NHibernate.SessionHelper.<>c__DisplayClass14`1.<AutoCommit>b__13(ISession s) in D:\Users\David\dev\Money\Money.Storage.NHibernate\SessionHelper.cs:line 176
+   at Money.Storage.NHibernate.SessionHelper.AutoSession(ISessionFactory storage, Action`1 action) in D:\Users\David\dev\Money\Money.Storage.NHibernate\SessionHelper.cs:line 104
+   at Money.Storage.NHibernate.SessionHelper.AutoCommit[TResult](ISessionFactory storage, Func`2 functor) in D:\Users\David\dev\Money\Money.Storage.NHibernate\SessionHelper.cs:line 162
+   at Money.Specifications.When_persisting_Money_via_NHibernate.<.ctor>b__1() in D:\Users\David\dev\Money\Money.Specs\When_creating_a_new_Money_with_no_args.cs:line 55
+   at Machine.Specifications.Utility.RandomExtensionMethods.InvokeAll(IEnumerable`1 contextActions) in c:\Home\Source\Projects\machine.specifications\Source\Machine.Specifications\Utility\RandomExtensionMethods.cs:line 28
+   at Machine.Specifications.Model.Context.EstablishContext() in c:\Home\Source\Projects\machine.specifications\Source\Machine.Specifications\Model\Context.cs:line 56</pre></p></li>
+</ul>
+
 
 <h3 class="context">When creating a new Money with no args&nbsp;&nbsp;&nbsp;&nbsp;</h3><h4><span class="count">5 specifications</span></h4><ul>	<li>should default to an amount of 0</li>
 	<li>should have a precision of 2 decimals</li>
