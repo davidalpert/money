@@ -61,6 +61,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NCommon\Expressions\MemberAccessPropertyInfoVisitor.cs" />
+    <Compile Include="NCommon\Expressions\ExpressionVisitor.cs" />
+    <Compile Include="NCommon\Expressions\MemberAccessPathVisitor.cs" />
+    <Compile Include="NCommon\NHibernate\CompositeUserTypeBase.cs" />
+    <Compile Include="NCommon\Guard.cs" />
     <Compile Include="SessionHelper.cs" />
     <Compile Include="MoneyCompositeUserType.cs" />
     <Compile Include="GenericCompositeUserType.cs" />

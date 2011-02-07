@@ -9,34 +9,37 @@ using System.Data;
 using NHibernate.Engine;
 using NHibernate;
 using System.Globalization;
+using NCommon.NHibernate;
 
 namespace Money.Storage.NHibernate
 {    
-    public class MoneyCompositeUserType : GenericCompositeUserType<Money>
+    public class MoneyCompositeUserType : CompositeUserTypeBase<Money>
     {
-        public MoneyCompositeUserType(
-                        bool isMutable, 
-                        IType[] propertyTypes, 
-                        string[] propertyNames, 
-                        GetMap getMap, 
-                        DeepCopyMap deepCopyMethod)
-            : base(isMutable, propertyTypes, propertyNames, getMap, deepCopyMethod)
+        /// <summary>
+        /// Initializes a new instance of the MoneyCompositeUserType class.
+        /// </summary>
+        public MoneyCompositeUserType()
         {
+            MapProperty(x => x.Amount);
+            MapProperty(x => x.EnglishCultureName);
         }
 
-        public MoneyCompositeUserType()
-            : this(false,
-                new IType[] { NHibernateUtil.Currency, NHibernateUtil.CultureInfo },
-                new string[] { "Amount", "CultureInfo" },
-                new GetMap(delegate(object[] values){
-                    decimal amount = (decimal)values[0];
-                    string cultureName = (string)values[1];
-                    return new Money(amount, cultureName);
-                }),
-                new DeepCopyMap(delegate(Money source) { 
-                    return new Money(source.Amount, source.EnglishCultureName);
-                }))
+        protected override Money CreateInstance(object[] propertyValues)
         {
+            decimal amount = (decimal)propertyValues[0];
+            string cultureName = propertyValues[1].ToString();
+
+            return new Money(amount, cultureName);
+        }
+
+        protected override Money PerformDeepCopy(Money source)
+        {
+            return source == null ? null : new Money(source.Amount, source.EnglishCultureName);
+        }
+
+        public override bool IsMutable
+        {
+            get { return false; }
         }
     }
 }
