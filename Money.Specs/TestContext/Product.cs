@@ -17,9 +17,13 @@ namespace Money.Specs.TestContext
         {
             Id(x => x.Id);
             Map(x => x.Name);
-            Map(x => x.PurchasePrice, "Purchase").CustomType<MoneyCompositeUserType>();
-            Map(x => x.RentalPrice, "Rental").CustomType<MoneyCompositeUserType>();
+            Map(x => x.PurchasePrice, "Purchase");
+            //Map(x => x.RentalPrice, "Rental").CustomType<MoneyCompositeUserType>();
         }
+    }
+
+    public class MoneyCompositeUserTypeConvention : UserTypeConvention<MoneyCompositeUserType>
+    {
     }
 
     public class Product

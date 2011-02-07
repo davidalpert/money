@@ -12,7 +12,7 @@ using System.Globalization;
 
 namespace Money.Storage.NHibernate
 {    
-    public class MoneyCompositeUserType : GenericCompositeUserType<Money>
+    public class MoneyCompositeUserType : GenericUserType<Money>
     {
         public MoneyCompositeUserType(
                         bool isMutable, 
@@ -25,16 +25,21 @@ namespace Money.Storage.NHibernate
         }
 
         public MoneyCompositeUserType()
+            : this("")
+        {
+        }
+
+        public MoneyCompositeUserType(string columnPrefix)
             : this(false,
                 new IType[] { NHibernateUtil.Currency, NHibernateUtil.CultureInfo },
-                new string[] { "Amount", "CultureInfo" },
+                new string[] { "Amount", "CultureInfo" }.Select(col => columnPrefix+col).ToArray(),
                 new GetMap(delegate(object[] values){
                     decimal amount = (decimal)values[0];
                     string cultureName = (string)values[1];
                     return new Money(amount, cultureName);
                 }),
                 new DeepCopyMap(delegate(Money source) { 
-                    return new Money(source.Amount, source.EnglishCultureName);
+                    return source == null ? null : new Money(source.Amount, source.EnglishCultureName);
                 }))
         {
         }

@@ -35,6 +35,9 @@ namespace Money.Specifications
                                  {
                                      m.FluentMappings
                                          .AddFromAssemblyOf<Product>();
+
+                                     m.FluentMappings
+                                         .Conventions.AddFromAssemblyOf<Product>();
                                  })
                                  .BuildConfiguration();
 

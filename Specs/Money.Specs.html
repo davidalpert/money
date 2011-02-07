@@ -77,100 +77,60 @@ function toggleVisibility(id, description) {
 <hr>
 <h2 class="concern"> specifications&nbsp;&nbsp;&nbsp;&nbsp;</h2><h3><span class="count">6 contexts, 27 specifications, <span class="failure">4 failures</span></span></h3>
 
-<h3 class="context">When persisting Money via NHibernate&nbsp;&nbsp;&nbsp;&nbsp;</h3><h4><span class="count">4 specifications, <span class="failure">4 failures</span></span></h4><ul>	<li>should persist money amounts <div class="failure">&lt;--FAILED</div><br/><p class="exception_type">Machine.Specifications.ExceptionResult<pre class="exception_message">System.NullReferenceException: Object reference not set to an instance of an object.
-   at Money.Storage.NHibernate.GenericCompositeUserType`1.GetPropertyValue(Object component, Int32 property) in D:\Users\David\dev\Money\Money.Storage.NHibernate\GenericCompositeUserType.cs:line 153
-   at NHibernate.Type.CompositeCustomType.GetPropertyValue(Object component, Int32 i)
-   at NHibernate.Type.CompositeCustomType.GetPropertyValues(Object component, EntityMode entityMode)
-   at NHibernate.Type.CompositeCustomType.GetPropertyValues(Object component, ISessionImplementor session)
-   at NHibernate.Engine.ForeignKeys.Nullifier.NullifyTransientReferences(Object value, IType type)
-   at NHibernate.Engine.ForeignKeys.Nullifier.NullifyTransientReferences(Object[] values, IType[] types)
-   at NHibernate.Event.Default.AbstractSaveEventListener.PerformSaveOrReplicate(Object entity, EntityKey key, IEntityPersister persister, Boolean useIdentityColumn, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
-   at NHibernate.Event.Default.AbstractSaveEventListener.PerformSave(Object entity, Object id, IEntityPersister persister, Boolean useIdentityColumn, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
-   at NHibernate.Event.Default.AbstractSaveEventListener.SaveWithGeneratedId(Object entity, String entityName, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
-   at NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.SaveWithGeneratedOrRequestedId(SaveOrUpdateEvent event)
-   at NHibernate.Event.Default.DefaultSaveEventListener.SaveWithGeneratedOrRequestedId(SaveOrUpdateEvent event)
-   at NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.EntityIsTransient(SaveOrUpdateEvent event)
-   at NHibernate.Event.Default.DefaultSaveEventListener.PerformSaveOrUpdate(SaveOrUpdateEvent event)
-   at NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.OnSaveOrUpdate(SaveOrUpdateEvent event)
-   at NHibernate.Impl.SessionImpl.FireSave(SaveOrUpdateEvent event)
-   at NHibernate.Impl.SessionImpl.Save(Object obj)
-   at Money.Specifications.When_persisting_Money_via_NHibernate.<.ctor>b__3(ISession s) in D:\Users\David\dev\Money\Money.Specs\When_creating_a_new_Money_with_no_args.cs:line 55
-   at Money.Storage.NHibernate.SessionHelper.<>c__DisplayClass14`1.<AutoCommit>b__13(ISession s) in D:\Users\David\dev\Money\Money.Storage.NHibernate\SessionHelper.cs:line 176
-   at Money.Storage.NHibernate.SessionHelper.AutoSession(ISessionFactory storage, Action`1 action) in D:\Users\David\dev\Money\Money.Storage.NHibernate\SessionHelper.cs:line 104
-   at Money.Storage.NHibernate.SessionHelper.AutoCommit[TResult](ISessionFactory storage, Func`2 functor) in D:\Users\David\dev\Money\Money.Storage.NHibernate\SessionHelper.cs:line 162
-   at Money.Specifications.When_persisting_Money_via_NHibernate.<.ctor>b__1() in D:\Users\David\dev\Money\Money.Specs\When_creating_a_new_Money_with_no_args.cs:line 55
+<h3 class="context">When persisting Money via NHibernate&nbsp;&nbsp;&nbsp;&nbsp;</h3><h4><span class="count">4 specifications, <span class="failure">4 failures</span></span></h4><ul>	<li>should persist money amounts <div class="failure">&lt;--FAILED</div><br/><p class="exception_type">Machine.Specifications.ExceptionResult<pre class="exception_message">NHibernate.MappingException: Could not determine type for column CultureInfo of type NHibernate.Type.CompositeCustomType: System.IndexOutOfRangeException ---> System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at NHibernate.Mapping.Column.GetSqlTypeCode(IMapping mapping)
+   --- End of inner exception stack trace ---
+   at NHibernate.Mapping.Column.GetSqlTypeCode(IMapping mapping)
+   at NHibernate.Mapping.Column.GetDialectTypeName(Dialect dialect, IMapping mapping)
+   at NHibernate.Mapping.Column.GetSqlType(Dialect dialect, IMapping mapping)
+   at NHibernate.Mapping.Table.SqlCreateString(Dialect dialect, IMapping p, String defaultCatalog, String defaultSchema)
+   at NHibernate.Cfg.Configuration.GenerateSchemaCreationScript(Dialect dialect)
+   at NHibernate.Tool.hbm2ddl.SchemaExport.Initialize()
+   at NHibernate.Tool.hbm2ddl.SchemaExport.Execute(Action`1 scriptAction, Boolean export, Boolean justDrop)
+   at NHibernate.Tool.hbm2ddl.SchemaExport.Execute(Boolean script, Boolean export, Boolean justDrop)
+   at Money.Specifications.When_persisting_Money_via_NHibernate.<.ctor>b__1() in D:\Users\David\dev\Money\Money.Specs\When_creating_a_new_Money_with_no_args.cs:line 43
    at Machine.Specifications.Utility.RandomExtensionMethods.InvokeAll(IEnumerable`1 contextActions) in c:\Home\Source\Projects\machine.specifications\Source\Machine.Specifications\Utility\RandomExtensionMethods.cs:line 28
    at Machine.Specifications.Model.Context.EstablishContext() in c:\Home\Source\Projects\machine.specifications\Source\Machine.Specifications\Model\Context.cs:line 56</pre></p></li>
-	<li>should persist money currency names <div class="failure">&lt;--FAILED</div><br/><p class="exception_type">Machine.Specifications.ExceptionResult<pre class="exception_message">System.NullReferenceException: Object reference not set to an instance of an object.
-   at Money.Storage.NHibernate.GenericCompositeUserType`1.GetPropertyValue(Object component, Int32 property) in D:\Users\David\dev\Money\Money.Storage.NHibernate\GenericCompositeUserType.cs:line 153
-   at NHibernate.Type.CompositeCustomType.GetPropertyValue(Object component, Int32 i)
-   at NHibernate.Type.CompositeCustomType.GetPropertyValues(Object component, EntityMode entityMode)
-   at NHibernate.Type.CompositeCustomType.GetPropertyValues(Object component, ISessionImplementor session)
-   at NHibernate.Engine.ForeignKeys.Nullifier.NullifyTransientReferences(Object value, IType type)
-   at NHibernate.Engine.ForeignKeys.Nullifier.NullifyTransientReferences(Object[] values, IType[] types)
-   at NHibernate.Event.Default.AbstractSaveEventListener.PerformSaveOrReplicate(Object entity, EntityKey key, IEntityPersister persister, Boolean useIdentityColumn, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
-   at NHibernate.Event.Default.AbstractSaveEventListener.PerformSave(Object entity, Object id, IEntityPersister persister, Boolean useIdentityColumn, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
-   at NHibernate.Event.Default.AbstractSaveEventListener.SaveWithGeneratedId(Object entity, String entityName, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
-   at NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.SaveWithGeneratedOrRequestedId(SaveOrUpdateEvent event)
-   at NHibernate.Event.Default.DefaultSaveEventListener.SaveWithGeneratedOrRequestedId(SaveOrUpdateEvent event)
-   at NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.EntityIsTransient(SaveOrUpdateEvent event)
-   at NHibernate.Event.Default.DefaultSaveEventListener.PerformSaveOrUpdate(SaveOrUpdateEvent event)
-   at NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.OnSaveOrUpdate(SaveOrUpdateEvent event)
-   at NHibernate.Impl.SessionImpl.FireSave(SaveOrUpdateEvent event)
-   at NHibernate.Impl.SessionImpl.Save(Object obj)
-   at Money.Specifications.When_persisting_Money_via_NHibernate.<.ctor>b__3(ISession s) in D:\Users\David\dev\Money\Money.Specs\When_creating_a_new_Money_with_no_args.cs:line 55
-   at Money.Storage.NHibernate.SessionHelper.<>c__DisplayClass14`1.<AutoCommit>b__13(ISession s) in D:\Users\David\dev\Money\Money.Storage.NHibernate\SessionHelper.cs:line 176
-   at Money.Storage.NHibernate.SessionHelper.AutoSession(ISessionFactory storage, Action`1 action) in D:\Users\David\dev\Money\Money.Storage.NHibernate\SessionHelper.cs:line 104
-   at Money.Storage.NHibernate.SessionHelper.AutoCommit[TResult](ISessionFactory storage, Func`2 functor) in D:\Users\David\dev\Money\Money.Storage.NHibernate\SessionHelper.cs:line 162
-   at Money.Specifications.When_persisting_Money_via_NHibernate.<.ctor>b__1() in D:\Users\David\dev\Money\Money.Specs\When_creating_a_new_Money_with_no_args.cs:line 55
+	<li>should persist money currency names <div class="failure">&lt;--FAILED</div><br/><p class="exception_type">Machine.Specifications.ExceptionResult<pre class="exception_message">NHibernate.MappingException: Could not determine type for column CultureInfo of type NHibernate.Type.CompositeCustomType: System.IndexOutOfRangeException ---> System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at NHibernate.Mapping.Column.GetSqlTypeCode(IMapping mapping)
+   --- End of inner exception stack trace ---
+   at NHibernate.Mapping.Column.GetSqlTypeCode(IMapping mapping)
+   at NHibernate.Mapping.Column.GetDialectTypeName(Dialect dialect, IMapping mapping)
+   at NHibernate.Mapping.Column.GetSqlType(Dialect dialect, IMapping mapping)
+   at NHibernate.Mapping.Table.SqlCreateString(Dialect dialect, IMapping p, String defaultCatalog, String defaultSchema)
+   at NHibernate.Cfg.Configuration.GenerateSchemaCreationScript(Dialect dialect)
+   at NHibernate.Tool.hbm2ddl.SchemaExport.Initialize()
+   at NHibernate.Tool.hbm2ddl.SchemaExport.Execute(Action`1 scriptAction, Boolean export, Boolean justDrop)
+   at NHibernate.Tool.hbm2ddl.SchemaExport.Execute(Boolean script, Boolean export, Boolean justDrop)
+   at Money.Specifications.When_persisting_Money_via_NHibernate.<.ctor>b__1() in D:\Users\David\dev\Money\Money.Specs\When_creating_a_new_Money_with_no_args.cs:line 43
    at Machine.Specifications.Utility.RandomExtensionMethods.InvokeAll(IEnumerable`1 contextActions) in c:\Home\Source\Projects\machine.specifications\Source\Machine.Specifications\Utility\RandomExtensionMethods.cs:line 28
    at Machine.Specifications.Model.Context.EstablishContext() in c:\Home\Source\Projects\machine.specifications\Source\Machine.Specifications\Model\Context.cs:line 56</pre></p></li>
-	<li>should persist multiple money amounts <div class="failure">&lt;--FAILED</div><br/><p class="exception_type">Machine.Specifications.ExceptionResult<pre class="exception_message">System.NullReferenceException: Object reference not set to an instance of an object.
-   at Money.Storage.NHibernate.GenericCompositeUserType`1.GetPropertyValue(Object component, Int32 property) in D:\Users\David\dev\Money\Money.Storage.NHibernate\GenericCompositeUserType.cs:line 153
-   at NHibernate.Type.CompositeCustomType.GetPropertyValue(Object component, Int32 i)
-   at NHibernate.Type.CompositeCustomType.GetPropertyValues(Object component, EntityMode entityMode)
-   at NHibernate.Type.CompositeCustomType.GetPropertyValues(Object component, ISessionImplementor session)
-   at NHibernate.Engine.ForeignKeys.Nullifier.NullifyTransientReferences(Object value, IType type)
-   at NHibernate.Engine.ForeignKeys.Nullifier.NullifyTransientReferences(Object[] values, IType[] types)
-   at NHibernate.Event.Default.AbstractSaveEventListener.PerformSaveOrReplicate(Object entity, EntityKey key, IEntityPersister persister, Boolean useIdentityColumn, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
-   at NHibernate.Event.Default.AbstractSaveEventListener.PerformSave(Object entity, Object id, IEntityPersister persister, Boolean useIdentityColumn, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
-   at NHibernate.Event.Default.AbstractSaveEventListener.SaveWithGeneratedId(Object entity, String entityName, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
-   at NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.SaveWithGeneratedOrRequestedId(SaveOrUpdateEvent event)
-   at NHibernate.Event.Default.DefaultSaveEventListener.SaveWithGeneratedOrRequestedId(SaveOrUpdateEvent event)
-   at NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.EntityIsTransient(SaveOrUpdateEvent event)
-   at NHibernate.Event.Default.DefaultSaveEventListener.PerformSaveOrUpdate(SaveOrUpdateEvent event)
-   at NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.OnSaveOrUpdate(SaveOrUpdateEvent event)
-   at NHibernate.Impl.SessionImpl.FireSave(SaveOrUpdateEvent event)
-   at NHibernate.Impl.SessionImpl.Save(Object obj)
-   at Money.Specifications.When_persisting_Money_via_NHibernate.<.ctor>b__3(ISession s) in D:\Users\David\dev\Money\Money.Specs\When_creating_a_new_Money_with_no_args.cs:line 55
-   at Money.Storage.NHibernate.SessionHelper.<>c__DisplayClass14`1.<AutoCommit>b__13(ISession s) in D:\Users\David\dev\Money\Money.Storage.NHibernate\SessionHelper.cs:line 176
-   at Money.Storage.NHibernate.SessionHelper.AutoSession(ISessionFactory storage, Action`1 action) in D:\Users\David\dev\Money\Money.Storage.NHibernate\SessionHelper.cs:line 104
-   at Money.Storage.NHibernate.SessionHelper.AutoCommit[TResult](ISessionFactory storage, Func`2 functor) in D:\Users\David\dev\Money\Money.Storage.NHibernate\SessionHelper.cs:line 162
-   at Money.Specifications.When_persisting_Money_via_NHibernate.<.ctor>b__1() in D:\Users\David\dev\Money\Money.Specs\When_creating_a_new_Money_with_no_args.cs:line 55
+	<li>should persist multiple money amounts <div class="failure">&lt;--FAILED</div><br/><p class="exception_type">Machine.Specifications.ExceptionResult<pre class="exception_message">NHibernate.MappingException: Could not determine type for column CultureInfo of type NHibernate.Type.CompositeCustomType: System.IndexOutOfRangeException ---> System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at NHibernate.Mapping.Column.GetSqlTypeCode(IMapping mapping)
+   --- End of inner exception stack trace ---
+   at NHibernate.Mapping.Column.GetSqlTypeCode(IMapping mapping)
+   at NHibernate.Mapping.Column.GetDialectTypeName(Dialect dialect, IMapping mapping)
+   at NHibernate.Mapping.Column.GetSqlType(Dialect dialect, IMapping mapping)
+   at NHibernate.Mapping.Table.SqlCreateString(Dialect dialect, IMapping p, String defaultCatalog, String defaultSchema)
+   at NHibernate.Cfg.Configuration.GenerateSchemaCreationScript(Dialect dialect)
+   at NHibernate.Tool.hbm2ddl.SchemaExport.Initialize()
+   at NHibernate.Tool.hbm2ddl.SchemaExport.Execute(Action`1 scriptAction, Boolean export, Boolean justDrop)
+   at NHibernate.Tool.hbm2ddl.SchemaExport.Execute(Boolean script, Boolean export, Boolean justDrop)
+   at Money.Specifications.When_persisting_Money_via_NHibernate.<.ctor>b__1() in D:\Users\David\dev\Money\Money.Specs\When_creating_a_new_Money_with_no_args.cs:line 43
    at Machine.Specifications.Utility.RandomExtensionMethods.InvokeAll(IEnumerable`1 contextActions) in c:\Home\Source\Projects\machine.specifications\Source\Machine.Specifications\Utility\RandomExtensionMethods.cs:line 28
    at Machine.Specifications.Model.Context.EstablishContext() in c:\Home\Source\Projects\machine.specifications\Source\Machine.Specifications\Model\Context.cs:line 56</pre></p></li>
-	<li>should persist multiple currency names <div class="failure">&lt;--FAILED</div><br/><p class="exception_type">Machine.Specifications.ExceptionResult<pre class="exception_message">System.NullReferenceException: Object reference not set to an instance of an object.
-   at Money.Storage.NHibernate.GenericCompositeUserType`1.GetPropertyValue(Object component, Int32 property) in D:\Users\David\dev\Money\Money.Storage.NHibernate\GenericCompositeUserType.cs:line 153
-   at NHibernate.Type.CompositeCustomType.GetPropertyValue(Object component, Int32 i)
-   at NHibernate.Type.CompositeCustomType.GetPropertyValues(Object component, EntityMode entityMode)
-   at NHibernate.Type.CompositeCustomType.GetPropertyValues(Object component, ISessionImplementor session)
-   at NHibernate.Engine.ForeignKeys.Nullifier.NullifyTransientReferences(Object value, IType type)
-   at NHibernate.Engine.ForeignKeys.Nullifier.NullifyTransientReferences(Object[] values, IType[] types)
-   at NHibernate.Event.Default.AbstractSaveEventListener.PerformSaveOrReplicate(Object entity, EntityKey key, IEntityPersister persister, Boolean useIdentityColumn, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
-   at NHibernate.Event.Default.AbstractSaveEventListener.PerformSave(Object entity, Object id, IEntityPersister persister, Boolean useIdentityColumn, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
-   at NHibernate.Event.Default.AbstractSaveEventListener.SaveWithGeneratedId(Object entity, String entityName, Object anything, IEventSource source, Boolean requiresImmediateIdAccess)
-   at NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.SaveWithGeneratedOrRequestedId(SaveOrUpdateEvent event)
-   at NHibernate.Event.Default.DefaultSaveEventListener.SaveWithGeneratedOrRequestedId(SaveOrUpdateEvent event)
-   at NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.EntityIsTransient(SaveOrUpdateEvent event)
-   at NHibernate.Event.Default.DefaultSaveEventListener.PerformSaveOrUpdate(SaveOrUpdateEvent event)
-   at NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.OnSaveOrUpdate(SaveOrUpdateEvent event)
-   at NHibernate.Impl.SessionImpl.FireSave(SaveOrUpdateEvent event)
-   at NHibernate.Impl.SessionImpl.Save(Object obj)
-   at Money.Specifications.When_persisting_Money_via_NHibernate.<.ctor>b__3(ISession s) in D:\Users\David\dev\Money\Money.Specs\When_creating_a_new_Money_with_no_args.cs:line 55
-   at Money.Storage.NHibernate.SessionHelper.<>c__DisplayClass14`1.<AutoCommit>b__13(ISession s) in D:\Users\David\dev\Money\Money.Storage.NHibernate\SessionHelper.cs:line 176
-   at Money.Storage.NHibernate.SessionHelper.AutoSession(ISessionFactory storage, Action`1 action) in D:\Users\David\dev\Money\Money.Storage.NHibernate\SessionHelper.cs:line 104
-   at Money.Storage.NHibernate.SessionHelper.AutoCommit[TResult](ISessionFactory storage, Func`2 functor) in D:\Users\David\dev\Money\Money.Storage.NHibernate\SessionHelper.cs:line 162
-   at Money.Specifications.When_persisting_Money_via_NHibernate.<.ctor>b__1() in D:\Users\David\dev\Money\Money.Specs\When_creating_a_new_Money_with_no_args.cs:line 55
+	<li>should persist multiple currency names <div class="failure">&lt;--FAILED</div><br/><p class="exception_type">Machine.Specifications.ExceptionResult<pre class="exception_message">NHibernate.MappingException: Could not determine type for column CultureInfo of type NHibernate.Type.CompositeCustomType: System.IndexOutOfRangeException ---> System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at NHibernate.Mapping.Column.GetSqlTypeCode(IMapping mapping)
+   --- End of inner exception stack trace ---
+   at NHibernate.Mapping.Column.GetSqlTypeCode(IMapping mapping)
+   at NHibernate.Mapping.Column.GetDialectTypeName(Dialect dialect, IMapping mapping)
+   at NHibernate.Mapping.Column.GetSqlType(Dialect dialect, IMapping mapping)
+   at NHibernate.Mapping.Table.SqlCreateString(Dialect dialect, IMapping p, String defaultCatalog, String defaultSchema)
+   at NHibernate.Cfg.Configuration.GenerateSchemaCreationScript(Dialect dialect)
+   at NHibernate.Tool.hbm2ddl.SchemaExport.Initialize()
+   at NHibernate.Tool.hbm2ddl.SchemaExport.Execute(Action`1 scriptAction, Boolean export, Boolean justDrop)
+   at NHibernate.Tool.hbm2ddl.SchemaExport.Execute(Boolean script, Boolean export, Boolean justDrop)
+   at Money.Specifications.When_persisting_Money_via_NHibernate.<.ctor>b__1() in D:\Users\David\dev\Money\Money.Specs\When_creating_a_new_Money_with_no_args.cs:line 43
    at Machine.Specifications.Utility.RandomExtensionMethods.InvokeAll(IEnumerable`1 contextActions) in c:\Home\Source\Projects\machine.specifications\Source\Machine.Specifications\Utility\RandomExtensionMethods.cs:line 28
    at Machine.Specifications.Model.Context.EstablishContext() in c:\Home\Source\Projects\machine.specifications\Source\Machine.Specifications\Model\Context.cs:line 56</pre></p></li>
 </ul>
